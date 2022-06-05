@@ -125,7 +125,7 @@ Training_evolution(history)
 
 ## Save and import of the model
 model.save("CNN_model.h5")
-model_AE = load_model("CNN_model.h5")
+CNN_model = load_model("CNN_model.h5")
 
 #.............................................................................................................
 #.............................................................................................................
@@ -136,7 +136,7 @@ plt.imshow(image)
 image = np.array(image).astype('float32')/255
 image = cv2.resize(image, (0, 0), fx=0.4, fy=0.4, interpolation = cv2.INTER_NEAREST)
 image = np.expand_dims(image, axis=0)
-pred = model1.predict(image)
+pred = CNN_model.predict(image)
 if pred <0.5:
     prediction = 0
 else:
